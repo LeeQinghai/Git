@@ -1,0 +1,115 @@
+配置用户名、邮箱
+git config --global user.name 'liqinghai'
+git config --global user.email 'qinghai720@hotmail.com'
+
+查看配置
+git config --list
+
+帮助文档
+git help <verb>
+git <verb> --help
+
+获取Git仓库两种方法：	
+1.本地创建
+git init 
+git add *
+git commit -m 'init repo'
+
+2.克隆仓库
+git clone [url]   //克隆仓库，自动将其添加为远程仓库并默认以 “origin” 为简写默认情况下，git clone 命令会自动设置本地 master 分支跟踪克隆的远程仓库的 master 分支
+
+检查当前文件状态
+git status
+git status -s
+
+跟踪新文件
+git add
+
+暂存已修改文件
+git add
+
+查看未暂存的修改(只显示未暂存的修改)
+git diff
+查看已暂存的修改(只显示已暂存的修改)
+git diff --staged
+
+提交更新
+git commit -a -m 'remark' 跳过使用暂存区域
+
+移除文件
+1.删除
+ 先删除文件之后
+ git rm [filename]
+
+2.不再纳入版本管理但文件继续保留
+ git rm --cached [filename]
+
+移动文件
+git mv README.md README
+
+每次提交的内容差异显示最近两次提交
+git log -p -2 
+每次提交的简略的统计信息
+git log --stat
+
+提交到上次提交中去
+git commit --amend
+
+取消暂存的文件（暂存-> 修改未暂存）
+git reset HEAD [filename]
+撤消对文件的修改（修改未暂存->未修改）
+git checkout -- [file]
+
+查看远程仓库
+git remote 
+git remote -v
+git remote show [remote-name]
+
+添加远程仓库
+git remote add <shortname> <url>
+
+从远程仓库中抓取与拉取
+git fetch [remote-name]  //并不会自动合并或修改当前的工作
+git pull	//通常会从最初克隆的服务器上抓取数据并自动尝试合并到当前所在的分支
+
+推送到远程仓库
+git push [remote-name] [branch-name]  //注意：当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会毫无疑问地被拒绝。 你必须先将他们的工作拉取下来并将其合并进你的工作后才能推送
+
+远程仓库的重命名
+git remote rename [old remote-name] [new remote-name]
+
+远程仓库的移除
+git remote rm [remote-name]
+
+新建分支hotfix
+git branch hotfix
+
+切换到分支hotfix
+git checkout hotfix
+
+新建并切换到分支hotfix
+git checkout -b hotfix
+
+合并hotfix分支到当前分支hotfix
+git merge hotfix  //当前分支是master
+
+删除分支hotfix
+git branch -d hotfix
+
+标记冲突已解决(一旦暂存原本有冲突的文件，Git 就会将它们标记为冲突已解决)
+git add [filename]
+
+查看分支的列表
+git branch
+git branch -v //后面显示每一个分支的最后一次提交
+git branch --merged //过滤分支列表中已经合并到当前分支的分支，这个列表中分支名字前没有 * 号的分支通常可以使用 git branch -d 删除掉；你已经将它们的工作整合到了另一个分支，所以并不会失去任何东西。
+git branch --no-merged //查看所有包含未合并工作的分支，如果想删除可以使用 git branch -D [branch-name]
+
+推送
+git push (remote) (branch)
+git push origin serverfix:awesomebranch //来将本地的 serverfix 分支推送到远程仓库上的 awesomebranch 分支
+
+本地生成指向远程仓库分支的引用
+git fetch origin
+将远程分支合并到当前分支
+git merge origin/serverfix

@@ -104,6 +104,7 @@ git branch
 git branch -v //ºóÃæÏÔÊ¾Ã¿Ò»¸ö·ÖÖ§µÄ×îºóÒ»´ÎÌá½»
 git branch --merged //¹ıÂË·ÖÖ§ÁĞ±íÖĞÒÑ¾­ºÏ²¢µ½µ±Ç°·ÖÖ§µÄ·ÖÖ§£¬Õâ¸öÁĞ±íÖĞ·ÖÖ§Ãû×ÖÇ°Ã»ÓĞ * ºÅµÄ·ÖÖ§Í¨³£¿ÉÒÔÊ¹ÓÃ git branch -d É¾³ıµô£»ÄãÒÑ¾­½«ËüÃÇµÄ¹¤×÷ÕûºÏµ½ÁËÁíÒ»¸ö·ÖÖ§£¬ËùÒÔ²¢²»»áÊ§È¥ÈÎºÎ¶«Î÷¡£
 git branch --no-merged //²é¿´ËùÓĞ°üº¬Î´ºÏ²¢¹¤×÷µÄ·ÖÖ§£¬Èç¹ûÏëÉ¾³ı¿ÉÒÔÊ¹ÓÃ git branch -D [branch-name]
+git branch -vv		//²é¿´ÉèÖÃµÄËùÓĞ¸ú×Ù·ÖÖ§
 
 ÍÆËÍ
 git push (remote) (branch)
@@ -113,3 +114,21 @@ git push origin serverfix:awesomebranch //À´½«±¾µØµÄ serverfix ·ÖÖ§ÍÆËÍµ½Ô¶³Ì²Ö¿
 git fetch origin
 ½«Ô¶³Ì·ÖÖ§ºÏ²¢µ½µ±Ç°·ÖÖ§
 git merge origin/serverfix
+
+´´½¨¸ú×Ù·ÖÖ§
+1.
+git checkout -b [localbranchname] [remotename]/[branch]
+2.
+git checkout --track origin/serverfix
+
+ÉèÖÃÒÑÓĞµÄ±¾µØ·ÖÖ§¸ú×ÙÒ»¸ö¸Õ¸ÕÀ­È¡ÏÂÀ´µÄÔ¶³Ì·ÖÖ§»òÕßÏëÒªĞŞ¸ÄÕıÔÚ¸ú×ÙµÄÉÏÓÎ·ÖÖ§
+git branch -u origin/serverfix
+
+²é¿´ÉèÖÃµÄËùÓĞ¸ú×Ù·ÖÖ§
+git branch -vv
+
+À­È¡
+µ± git fetch ÃüÁî´Ó·şÎñÆ÷ÉÏ×¥È¡±¾µØÃ»ÓĞµÄÊı¾İÊ±£¬Ëü²¢²»»áĞŞ¸Ä¹¤×÷Ä¿Â¼ÖĞµÄÄÚÈİ¡£ ËüÖ»»á»ñÈ¡Êı¾İÈ»ºóÈÃÄã×Ô¼ººÏ²¢¡£ È»¶ø£¬ÓĞÒ»¸öÃüÁî½Ğ×÷ git pull ÔÚ´ó¶àÊıÇé¿öÏÂËüµÄº¬ÒåÊÇÒ»¸ö git fetch ½ô½Ó×ÅÒ»¸ö git merge ÃüÁî¡£ Èç¹ûÓĞÒ»¸öÏñÖ®Ç°ÕÂ½ÚÖĞÑİÊ¾µÄÉèÖÃºÃµÄ¸ú×Ù·ÖÖ§£¬²»¹ÜËüÊÇÏÔÊ½µØÉèÖÃ»¹ÊÇÍ¨¹ı clone »ò checkout ÃüÁîÎªÄã´´½¨µÄ£¬git pull ¶¼»á²éÕÒµ±Ç°·ÖÖ§Ëù¸ú×ÙµÄ·şÎñÆ÷Óë·ÖÖ§£¬´Ó·şÎñÆ÷ÉÏ×¥È¡Êı¾İÈ»ºó³¢ÊÔºÏ²¢ÈëÄÇ¸öÔ¶³Ì·ÖÖ§¡£
+
+É¾³ıÔ¶³Ì·ÖÖ§
+git push origin --delete serverfix
